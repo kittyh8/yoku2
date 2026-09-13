@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ぐつぐつ、調合中。</title>
+<title>yoku2 — よく、煮込む。</title>
 <style>
   :root {
     --bg-deep: #0d0715;
@@ -20,20 +20,15 @@
   html, body {
     margin: 0;
     padding: 0;
-    height: 100%;
   }
 
   body {
     min-height: 100vh;
-    background: radial-gradient(ellipse at 50% 20%, var(--bg-mid) 0%, var(--bg-deep) 70%);
+    background: radial-gradient(ellipse at 50% 15%, var(--bg-mid) 0%, var(--bg-deep) 70%);
     color: var(--text);
     font-family: "Hiragino Sans", "Yu Gothic", "Segoe UI", system-ui, sans-serif;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 32px 16px;
-    overflow-x: hidden;
     position: relative;
+    overflow-x: hidden;
   }
 
   .stars {
@@ -50,24 +45,55 @@
     background-repeat: no-repeat;
   }
 
+  header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px clamp(16px, 5vw, 48px);
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    font-size: 1.05rem;
+  }
+
+  .logo svg { width: 22px; height: 22px; }
+
+  nav a {
+    color: var(--text-dim);
+    text-decoration: none;
+    font-size: 0.85rem;
+    margin-left: 24px;
+  }
+  nav a:hover { color: var(--text); }
+
   main {
     position: relative;
-    max-width: 560px;
+    max-width: 640px;
     width: 100%;
     text-align: center;
-    padding-block: 24px;
+    margin: 0 auto;
+    padding: clamp(16px, 6vw, 40px) 16px 64px;
   }
 
   .cauldron-wrap {
     position: relative;
-    width: min(70vw, 260px);
-    margin: 0 auto 8px;
+    width: min(60vw, 240px);
+    margin: 24px auto 8px;
     filter: drop-shadow(0 0 24px var(--purple-glow));
   }
 
   svg { width: 100%; height: auto; display: block; overflow: visible; }
 
   .bubble {
+    transform-box: fill-box;
     transform-origin: center;
     animation: rise 3.2s ease-in infinite;
   }
@@ -81,12 +107,13 @@
     0%   { transform: translateY(0) scale(0.7); opacity: 0; }
     15%  { opacity: 1; }
     80%  { opacity: 0.8; }
-    100% { transform: translateY(-26px) scale(1.15); opacity: 0; }
+    100% { transform: translateY(-22px) scale(1.15); opacity: 0; }
   }
 
   .steam {
-    animation: sway 3s ease-in-out infinite;
+    transform-box: fill-box;
     transform-origin: bottom center;
+    animation: sway 3s ease-in-out infinite;
   }
   @keyframes sway {
     0%, 100% { transform: translateX(0) scaleY(1); }
@@ -94,8 +121,9 @@
   }
 
   .brew {
-    animation: simmer 2.4s ease-in-out infinite;
+    transform-box: fill-box;
     transform-origin: center bottom;
+    animation: simmer 2.4s ease-in-out infinite;
   }
   @keyframes simmer {
     0%, 100% { transform: translateY(0); }
@@ -103,31 +131,48 @@
   }
 
   h1 {
-    font-size: clamp(1.5rem, 5vw, 2.1rem);
+    font-size: clamp(1.7rem, 5.5vw, 2.6rem);
     font-weight: 700;
     letter-spacing: 0.02em;
-    margin: 12px 0 4px;
+    margin: 8px 0 4px;
     color: var(--text);
   }
 
-  .dots {
-    display: inline-block;
-    color: var(--purple-light);
-  }
+  h1 .accent { color: var(--purple-light); }
 
   p.sub {
     color: var(--text-dim);
-    font-size: clamp(0.9rem, 3vw, 1rem);
-    line-height: 1.8;
-    margin: 12px auto 0;
-    max-width: 40ch;
+    font-size: clamp(0.9rem, 3vw, 1.05rem);
+    line-height: 1.9;
+    margin: 16px auto 0;
+    max-width: 42ch;
   }
+
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-top: 40px;
+    text-align: left;
+  }
+  @media (max-width: 520px) {
+    .cards { grid-template-columns: 1fr; }
+  }
+
+  .card {
+    border: 1px solid rgba(167, 139, 250, 0.2);
+    background: rgba(124, 58, 237, 0.06);
+    border-radius: 14px;
+    padding: 16px 18px;
+  }
+  .card .k { color: var(--purple-light); font-size: 0.78rem; letter-spacing: 0.08em; }
+  .card p { margin: 6px 0 0; font-size: 0.88rem; color: var(--text-dim); line-height: 1.6; }
 
   .badge {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    margin-top: 28px;
+    margin-top: 32px;
     padding: 8px 18px;
     border: 1px solid rgba(167, 139, 250, 0.35);
     border-radius: 999px;
@@ -152,7 +197,8 @@
   }
 
   footer {
-    margin-top: 40px;
+    text-align: center;
+    padding: 24px 16px 40px;
     font-size: 0.75rem;
     color: rgba(183, 169, 217, 0.5);
     letter-spacing: 0.04em;
@@ -161,6 +207,21 @@
 </head>
 <body>
   <div class="stars"></div>
+
+  <header>
+    <div class="logo">
+      <svg viewBox="0 0 200 230" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#a78bfa" stroke-width="12" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M28 100 C 20 100, 18 112, 22 130 C 28 165, 55 195, 100 195 C 145 195, 172 165, 178 130 C 182 112, 180 100, 172 100 Z" />
+        <path d="M55 195 L 48 213" /><path d="M100 195 L 100 215" /><path d="M145 195 L 152 213" />
+      </svg>
+      yoku2
+    </div>
+    <nav>
+      <a href="#about">about</a>
+      <a href="#contact">contact</a>
+    </nav>
+  </header>
+
   <main>
     <div class="cauldron-wrap">
       <svg viewBox="0 0 200 230" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#7c3aed" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
@@ -193,12 +254,18 @@
       </svg>
     </div>
 
-    <h1>ただいま、何かを調合中<span class="dots">…</span></h1>
-    <p class="sub">大鍋の中でくつくつと、まだ言葉にならない何かが煮えています。<br>出来上がるまで、もう少しだけお待ちを。</p>
+    <h1>よく<span class="accent">、</span>煮込む。</h1>
+    <p class="sub">急がず、じっくりと。大鍋の中で時間をかけて、味がしみ込んでいく。<br>yoku2 は、そんな時間のためのサイトです。</p>
+
+    <div class="cards">
+      <div class="card"><div class="k">じっくり</div><p>火を弱めて、ゆっくりと</p></div>
+      <div class="card"><div class="k">コトコト</div><p>焦らず、かき混ぜながら</p></div>
+      <div class="card"><div class="k">あたたかく</div><p>できあがるまで、そばで待つ</p></div>
+    </div>
 
     <div class="badge"><span class="dot"></span>BREWING</div>
-
-    <footer>yoku2</footer>
   </main>
+
+  <footer id="contact">yoku2.com</footer>
 </body>
 </html>
