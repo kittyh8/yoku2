@@ -64,7 +64,7 @@
     font-size: 1.05rem;
   }
 
-  .logo svg { width: 22px; height: 22px; }
+  .logo img { width: 22px; height: 22px; display: block; }
 
   nav a {
     color: var(--text-dim);
@@ -90,44 +90,15 @@
     filter: drop-shadow(0 0 24px var(--purple-glow));
   }
 
-  svg { width: 100%; height: auto; display: block; overflow: visible; }
-
-  .bubble {
-    transform-box: fill-box;
-    transform-origin: center;
-    animation: rise 3.2s ease-in infinite;
+  .cauldron-wrap img {
+    width: 100%;
+    height: auto;
+    display: block;
+    animation: bob 3s ease-in-out infinite;
   }
-  .bubble.b1 { animation-delay: 0s; }
-  .bubble.b2 { animation-delay: 1s; }
-  .bubble.b3 { animation-delay: 2s; }
-  .bubble.b4 { animation-delay: 0.6s; }
-  .bubble.b5 { animation-delay: 1.7s; }
-
-  @keyframes rise {
-    0%   { transform: translateY(0) scale(0.7); opacity: 0; }
-    15%  { opacity: 1; }
-    80%  { opacity: 0.8; }
-    100% { transform: translateY(-22px) scale(1.15); opacity: 0; }
-  }
-
-  .steam {
-    transform-box: fill-box;
-    transform-origin: bottom center;
-    animation: sway 3s ease-in-out infinite;
-  }
-  @keyframes sway {
-    0%, 100% { transform: translateX(0) scaleY(1); }
-    50%      { transform: translateX(3px) scaleY(1.03); }
-  }
-
-  .brew {
-    transform-box: fill-box;
-    transform-origin: center bottom;
-    animation: simmer 2.4s ease-in-out infinite;
-  }
-  @keyframes simmer {
+  @keyframes bob {
     0%, 100% { transform: translateY(0); }
-    50%      { transform: translateY(-1.5px); }
+    50%      { transform: translateY(-6px); }
   }
 
   h1 {
@@ -210,10 +181,7 @@
 
   <header>
     <div class="logo">
-      <svg viewBox="0 0 200 230" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#a78bfa" stroke-width="12" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M28 100 C 20 100, 18 112, 22 130 C 28 165, 55 195, 100 195 C 145 195, 172 165, 178 130 C 182 112, 180 100, 172 100 Z" />
-        <path d="M55 195 L 48 213" /><path d="M100 195 L 100 215" /><path d="M145 195 L 152 213" />
-      </svg>
+      <img src="assets/cauldron.png" alt="" width="22" height="22">
       yoku2
     </div>
     <nav>
@@ -224,34 +192,7 @@
 
   <main>
     <div class="cauldron-wrap">
-      <svg viewBox="0 0 200 230" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#7c3aed" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
-        <!-- steam -->
-        <path class="steam" d="M100 95 C 90 82, 108 70, 100 58 C 92 46, 108 36, 102 26" />
-        <circle class="bubble b1" cx="118" cy="20" r="9" />
-        <circle class="bubble b2" cx="80" cy="55" r="7" />
-        <circle class="bubble b3" cx="126" cy="70" r="8" />
-        <circle class="bubble b4" cx="90" cy="35" r="3" stroke-width="6" />
-        <circle class="bubble b5" cx="132" cy="45" r="3" stroke-width="6" />
-
-        <!-- cauldron rim + brew -->
-        <path class="brew" d="M35 100 C 55 112, 145 112, 165 100" />
-        <path class="brew" d="M75 108 C 82 98, 94 98, 100 108" />
-        <path class="brew" d="M112 108 C 118 100, 128 100, 132 106" />
-        <path class="brew" d="M62 112 l 4 -5" />
-
-        <!-- pot body -->
-        <path d="M28 100
-                 C 20 100, 18 112, 22 130
-                 C 28 165, 55 195, 100 195
-                 C 145 195, 172 165, 178 130
-                 C 182 112, 180 100, 172 100
-                 Z" />
-
-        <!-- legs -->
-        <path d="M55 195 L 48 213" />
-        <path d="M100 195 L 100 215" />
-        <path d="M145 195 L 152 213" />
-      </svg>
+      <img src="assets/cauldron.png" alt="よく煮込む大鍋" width="1254" height="1254">
     </div>
 
     <h1>よく<span class="accent">、</span>煮込む。</h1>
