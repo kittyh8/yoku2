@@ -230,6 +230,119 @@
     color: rgba(183, 169, 217, 0.5);
     letter-spacing: 0.04em;
   }
+
+  .games-section {
+    margin-top: 56px;
+    text-align: left;
+  }
+
+  .games-eyebrow {
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    color: var(--text-dim);
+    opacity: 0.7;
+    margin-bottom: 14px;
+    padding-left: 2px;
+  }
+
+  .games-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .game-card {
+    display: block;
+    border: 1px solid rgba(167, 139, 250, 0.25);
+    background: linear-gradient(135deg, rgba(124, 58, 237, 0.1), rgba(13, 7, 21, 0.4));
+    border-radius: 18px;
+    overflow: hidden;
+    text-decoration: none;
+    transition: border-color 0.15s ease, transform 0.15s ease;
+  }
+  .game-card:hover { border-color: rgba(167, 139, 250, 0.55); transform: translateY(-1px); }
+
+  .game-card .thumb-video {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    background: #060a12;
+    overflow: hidden;
+  }
+  .game-card .thumb-video video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 20%;
+    display: block;
+  }
+  .game-card .thumb-video::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(10, 5, 16, 0.85) 0%, rgba(10, 5, 16, 0) 38%);
+  }
+
+  .game-card .play-badge {
+    position: absolute;
+    right: 12px;
+    bottom: 12px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgba(13, 7, 21, 0.65);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(2px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 0.7rem;
+    z-index: 1;
+  }
+
+  .game-card .logo-mini {
+    position: absolute;
+    left: 14px;
+    bottom: 10px;
+    z-index: 1;
+    font-weight: 800;
+    font-size: 0.95rem;
+    line-height: 1.15;
+    letter-spacing: 0.02em;
+  }
+  .game-card .logo-mini .l1 {
+    color: #5fe9ff;
+    text-shadow: 0 0 6px #5fe9ffaa, 0 0 16px #5fe9ff55;
+  }
+  .game-card .logo-mini .l2 {
+    color: #ff5fc8;
+    text-shadow: 0 0 6px #ff5fc8aa, 0 0 16px #ff5fc855;
+  }
+
+  .game-card .card-body {
+    padding: 12px 14px 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  .game-card .tagline {
+    font-size: 0.8rem;
+    color: var(--text-dim);
+  }
+
+  .game-card .tag {
+    flex: 0 0 auto;
+    font-size: 0.62rem;
+    letter-spacing: 0.04em;
+    color: var(--purple-light);
+    background: rgba(124, 58, 237, 0.15);
+    border: 1px solid rgba(167, 139, 250, 0.25);
+    border-radius: 999px;
+    padding: 4px 10px;
+  }
 </style>
 </head>
 <body>
@@ -266,6 +379,23 @@
     <p class="sub">形になる前の、何か。</p>
 
     <div class="badge"><span class="dot"></span>BREWING</div>
+
+    <div class="games-section">
+      <div class="games-eyebrow">GAMES</div>
+      <div class="games-grid">
+        <a class="game-card" href="https://danmaku.yoku2.com" target="_blank" rel="noopener">
+          <div class="thumb-video">
+            <video src="assets/preview/danmaku-night.mp4" autoplay muted loop playsinline></video>
+            <div class="logo-mini"><div class="l1">DANMAKU</div><div class="l2">NIGHT</div></div>
+            <div class="play-badge">▶</div>
+          </div>
+          <div class="card-body">
+            <div class="tagline">60秒、ドーパミン全開の一騎打ち。</div>
+            <span class="tag">PLAY NOW</span>
+          </div>
+        </a>
+      </div>
+    </div>
   </main>
 
   <footer id="contact">yoku2.com</footer>
